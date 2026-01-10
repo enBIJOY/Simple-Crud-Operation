@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-        <form action="{{ route('create') }}" method="POST">
+        <form action="{{ route('create') }}" method="post">
             @csrf
             <label class="mt-2">Name</label>
             <input type="text" class="form-control" name="name">

@@ -1,16 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CrudController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/create', [ProductController::class, 'create'])->name('create');
-Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
-Route::post('/update/{id}', [ProductController::class, 'update'])->name('update');
-Route::get('/show', [ProductController::class, 'show'])->name('show');
-Route::delete('/product/delete/{id}', [ProductController::class, 'productDelete'])->name('product.delete');
-
-
+Route::post('/create', [CrudController::class, 'create'])->name('create');
+Route::get('/edit/{id}', [CrudController::class, 'edit'])->name('edit');
+Route::post('/update/{id}', [CrudController::class, 'update'])->name('update');
+Route::get('/show', [CrudController::class, 'show'])->name('show');
+Route::delete('/product/delete/{id}', [CrudController::class, 'productDelete'])->name('product.delete');
