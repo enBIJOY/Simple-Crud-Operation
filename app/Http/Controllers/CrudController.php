@@ -37,17 +37,19 @@ class CrudController extends Controller
     }
 
     public function update(Request $request, $id){
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:products,email',
-            'phone' => 'required|integer',
-            'description' => 'required',
+        $request -> validate([
+            'name'=>'required',
+            'email'=>'required|email',
+            'phone'=>'required',
+            'description'=>'required'
         ]);
+
         $product = Product::find($id);
         $product->name = $request->name;
         $product->email = $request->email;
         $product->phone = $request->phone;
         $product->description = $request->description;
+
         $product->save();
         return redirect()->route('show');
     }
